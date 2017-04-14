@@ -1,0 +1,33 @@
+<html xmlns:concordion = "http://www.concordion.org/2007/concordion">
+<head>
+    <link href = "../concordion.css" rel = "stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class = "example">
+
+    <p>
+        User Name:<span concordion:set="#userName">Alex</span>
+    </p>
+
+    <p>
+    The User name <span concordion:assertTrue="#userName.startsWith(#letter)">
+
+    starts with <b concordion:set="#letter">A</b>.</span>
+    </p>
+
+    <p>
+        The User name <span concordion:assertFalse="#userName.startsWith(#letter)">
+
+    not starts with <b concordion:set="#letter">R</b>.</span>
+    </p>
+
+    <p>
+        The User name <span concordion:execute="#length=length(#userName)"></span>
+    </p>
+
+    length is <b concordion:equals="#length">4</b>
+</div>
+</body>
+
+</html>

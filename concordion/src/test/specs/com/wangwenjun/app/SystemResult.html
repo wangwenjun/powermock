@@ -1,0 +1,52 @@
+<html xmlns:concordion = "http://www.concordion.org/2007/concordion">
+<head>
+    <link href = "../concordion.css" rel = "stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class = "example">
+
+    <p>
+        User Name:<span concordion:set="#userName">Alex</span>
+    </p>
+
+    <span concordion:execute="#result=query(#userName)"/>
+
+    <h4>The assert result section</h4>
+    The UserName <span concordion:asserEquals="#result.userName">Alex</span>
+    <br/>
+    The Age <span concordion:assertEquals="#result.age">31</span>
+</div>
+
+<div class="example">
+    The full name <span concordion:execute="#result=split(#TEXT)">Alex,Wang</span>
+    if to be broken into firstName is <span concordion:assertEquals="#result.firstName">Alex</span>
+    and second name is <span concordion:assertEquals="#result.secondName">Wang</span>.
+</div>
+
+
+<div class="example">
+    The list of result
+    <span concordion:execute="#result=list(#TEXT)"> WangWenJun</span>
+    <table style="width:100%">
+        <tr>
+            <th>User Name</th>
+            <th> Age </th>
+        </tr>
+        <tr>
+            <td concordion:assertEquals="#result.result1.userName">Alex</td>
+            <td concordion:assertEquals="#result.result1.age">31</td>
+        </tr>
+        <tr>
+            <td concordion:assertEquals="#result.result2.userName">Tony</td>
+            <td concordion:assertEquals="#result.result2.age">32</td>
+        </tr>
+        <tr>
+            <td concordion:assertEquals="#result.result3.userName">Van</td>
+            <td concordion:assertEquals="#result.result3.age">28</td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<html xmlns:concordion = "http://www.concordion.org/2007/concordion">
+<head>
+    <link href = "../concordion.css" rel = "stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class = "example">
+
+    <p>
+        The sum of numbers <span concordion:set="#f">2</span> and <span concordion:set="#s">3</span>
+        Will be result <span concordion:assertEquals="sum(#f,#s)">5</span>
+    </p>
+    <hr/>
+
+        The sum of numbers <span concordion:set="#f">2</span> and <span concordion:set="#s">3</span>
+        <span concordion:execute="#result=sum(#f,#s)"/>
+        will be equals<span concordion:assertEquals="#result">5</span>
+
+</div>
+
+<div class="example">
+    <table style="width:100%">
+        <tr>
+            <th>First Number</th>
+            <th>Second Number</th>
+            <th>Result Value</th>
+        </tr>
+        <tr concordion:execute="#result=sum(#firstNumber,#secondNumber)">
+            <td concordion:set="#firstNumber">1</td>
+            <td concordion:set="#secondNumber">2</td>
+            <td concordion:assertEquals="#result">3</td>
+        </tr>
+        <tr concordion:execute="#result=sum(#firstNumber,#secondNumber)">
+            <td concordion:set="#firstNumber">-10</td>
+            <td concordion:set="#secondNumber">20</td>
+            <td concordion:assertEquals="#result">10</td>
+        </tr>
+        <tr concordion:execute="#result=sum(#firstNumber,#secondNumber)">
+            <td concordion:set="#firstNumber">12</td>
+            <td concordion:set="#secondNumber">11</td>
+            <td concordion:assertEquals="#result">23</td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>

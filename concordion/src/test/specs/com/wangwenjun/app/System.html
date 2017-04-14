@@ -1,0 +1,17 @@
+<html xmlns:concordion = "http://www.concordion.org/2007/concordion">
+<head>
+    <link href = "../concordion.css" rel = "stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>测试System类</h1>
+<div class = "example">
+    <h3>System的测试</h3>
+    <p>When <span concordion:set = "#name">Alex</span>
+        <font concordion:assertEquals = "invokeLogin(#name)">
+            Hello Alex!!!</font> is displayed.
+    </p>
+</div>
+</body>
+
+</html>
